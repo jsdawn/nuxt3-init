@@ -1,0 +1,35 @@
+$-colors: (
+  'primary': (
+    'base': #1171ee,
+  ),
+  'success': (
+    'base': #67c23a,
+  ),
+  'warning': (
+    'base': #e6a23c,
+  ),
+  'danger': (
+    'base': #f56c6c,
+  ),
+  'error': (
+    'base': #f56c6c,
+  ),
+  'info': (
+    'base': #909399,
+  ),
+);
+
+$-border-radius: (
+  'base': 0,
+  'small': 2px,
+  'round': 20px,
+  'circle': 100%,
+);
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: $-colors,
+  $border-radius: $-border-radius
+);
+
+// 默认var.scss地址
+// https://github.com/element-plus/element-plus/blob/dev/packages/theme-chalk/src/common/var.scss
