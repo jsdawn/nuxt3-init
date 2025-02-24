@@ -7,6 +7,17 @@ export default defineNuxtConfig({
   ssr: true,
   srcDir: 'src/',
 
+  // 运行时根据 env文件中以 NUXT_ 开头的下划线命名法覆盖config中的值
+  // 构建后不会读取 env文件，仅使用config默认值
+  runtimeConfig: {
+    // The private keys which are only available within server-side
+    apiSecret: 'api_secret_token_default',
+    // Keys within public, will be also exposed to the client-side
+    public: {
+      apiBase: 'https://api.diggmind.com',
+    },
+  },
+
   app: {
     head: {
       title: 'Element Plus + Nuxt 3',
@@ -38,31 +49,29 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    // devProxy: {
-    //   '/proxyApi': {
-    //     target: process.env.NUXT_PUBLIC_API_BASE,
-    //     changeOrigin: true,
-    //   },
-    // },
+    devProxy: {
+      '/proxyApi': {
+        target: process.env.NUXT_PUBLIC_API_BASE,
+        changeOrigin: true,
+      },
+    },
   },
 
   // elementPlus
   elementPlus: {
     importStyle: 'scss',
   },
-
   // tailwindcss
   tailwindcss: {
     viewer: true,
   },
-
   // vueuse
   vueuse: {
     ssrHandlers: true,
   },
 
   devServer: {
-    port: 3001,
+    port: 3008,
     host: 'localhost',
   },
 });

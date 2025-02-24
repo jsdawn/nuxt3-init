@@ -33,14 +33,17 @@ const service = $fetch.create({
       const requestObj = {
         url: request.url,
         data:
-          typeof options.body === 'object' ? JSON.stringify(options.body) : options.body,
+          typeof options.body === 'object'
+            ? JSON.stringify(options.body)
+            : options.body,
         time: new Date().getTime(),
       };
       const requestSize = Object.keys(JSON.stringify(requestObj)).length; // 请求数据大小
       const limitSize = 5 * 1024 * 1024; // 限制存放数据5M
       if (requestSize >= limitSize) {
         console.warn(
-          `[${request.url}]: ` + '请求数据大小超出允许的5M限制，无法进行防重复提交验证。',
+          `[${request.url}]: ` +
+            '请求数据大小超出允许的5M限制，无法进行防重复提交验证。',
         );
         return;
       }
@@ -48,7 +51,11 @@ const service = $fetch.create({
       let sessionObj = store.requestObj;
       sessionObj = sessionObj ? JSON.parse(sessionObj) : null;
 
-      if (sessionObj === undefined || sessionObj === null || sessionObj === '') {
+      if (
+        sessionObj === undefined ||
+        sessionObj === null ||
+        sessionObj === ''
+      ) {
         store.setRequestObj(JSON.stringify(requestObj));
       } else {
         const s_url = sessionObj.url; // 请求地址
@@ -70,6 +77,7 @@ const service = $fetch.create({
     }
     // --end 防止重复提交--
   },
+
   // 请求错误拦截
   onRequestError(error) {
     // console.log(error, '请求错误拦截');
@@ -100,6 +108,7 @@ const service = $fetch.create({
       return Promise.resolve(res._data); // 返回响应体 data
     }
   },
+
   // 响应错误拦截
   onResponseError(error) {
     showError(error);
