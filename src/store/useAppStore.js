@@ -4,7 +4,8 @@ import { defineStore } from 'pinia';
 export const useAppStore = defineStore('app', {
   state: () => ({
     requestObj: null, // 请求体缓存，防止请求重复提交
-    token: '',
+    token:
+      '962d/52P9bc39fTndt2Hnsn4LOQ4Ew7SjWRoTwL9caR7qAr5e56vZ+el+kmYgOCnxZNdRVrOUATVVj/HqBEzK4anMzzsp5VzeTtdaaV95cRF7hh2T3fUP6K6tw',
     user: null,
     defaultAvatar: 'https://dummyimage.com/100x100/064b6e/fff.png',
   }),

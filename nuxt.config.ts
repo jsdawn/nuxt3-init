@@ -53,6 +53,8 @@ export default defineNuxtConfig({
       '/dev-api': {
         target: process.env.NUXT_PUBLIC_API_BASE,
         changeOrigin: true,
+        secure: false,
+        ignorePath: true, // 未成功 why？
       },
     },
   },

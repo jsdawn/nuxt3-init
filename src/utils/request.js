@@ -7,10 +7,12 @@ const service = $fetch.create({
   // 请求拦截
   onRequest({ request, options }) {
     const store = useAppStore();
+
+    options.baseURL = useRuntimeConfig().public.apiBase;
     // 请求前缀url
-    options.baseURL = import.meta.dev
-      ? '/dev-api'
-      : useRuntimeConfig().public.apiBase;
+    // options.baseURL = import.meta.dev
+    //   ? '/dev-api'
+    //   : useRuntimeConfig().public.apiBase;
 
     // 是否允许数据重复提交，默认不允许
     const isRepeatSubmit = (options.headers || {}).repeatSubmit === false;

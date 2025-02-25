@@ -2,7 +2,7 @@ import request from '@/utils/request.js';
 
 export function listArticles(params) {
   return request({
-    url: '/api/articles',
+    url: '/api/v2/wx/recommendData',
     method: 'get',
     params,
   });
@@ -10,8 +10,9 @@ export function listArticles(params) {
 
 export function getArticles(id) {
   return request({
-    url: '/api/articles/' + id,
+    url: '/api/v2/test/detail',
     method: 'get',
+    params: { test_id: id },
   });
 }
 
