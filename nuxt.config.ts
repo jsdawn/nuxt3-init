@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     apiSecret: 'api_secret_token_default',
     // Keys within public, will be also exposed to the client-side
     public: {
-      apiBase: 'https://api.diggmind.com',
+      apiBase: 'https://api.prod.com',
     },
   },
 
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
 
   nitro: {
     devProxy: {
-      '/proxyApi': {
+      '/dev-api': {
         target: process.env.NUXT_PUBLIC_API_BASE,
         changeOrigin: true,
       },
