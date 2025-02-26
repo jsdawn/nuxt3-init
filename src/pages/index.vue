@@ -43,7 +43,7 @@ const {
   },
 );
 
-console.log(products.value);
+console.log(products?.value || '无products');
 
 // 分页切换逻辑
 const handlePageChange = (newPage) => {

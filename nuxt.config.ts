@@ -50,11 +50,16 @@ export default defineNuxtConfig({
 
   nitro: {
     devProxy: {
-      '/dev-api': {
-        target: process.env.NUXT_PUBLIC_API_BASE,
-        changeOrigin: true,
-        secure: false,
-        ignorePath: true, // 未成功 why？
+      // '/dev-api': {
+      //   target: process.env.NUXT_PUBLIC_API_BASE,
+      //   changeOrigin: true,
+      //   secure: false,
+      //   ignorePath: true, // 未成功 why？
+      // },
+    },
+    routeRules: {
+      '/dev-api/**': {
+        proxy: process.env.NUXT_PUBLIC_API_BASE + '/**',
       },
     },
   },

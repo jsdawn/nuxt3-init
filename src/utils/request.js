@@ -8,11 +8,10 @@ const service = $fetch.create({
   onRequest({ request, options }) {
     const store = useAppStore();
 
-    options.baseURL = useRuntimeConfig().public.apiBase;
-    // 请求前缀url
-    // options.baseURL = import.meta.dev
-    //   ? '/dev-api'
-    //   : useRuntimeConfig().public.apiBase;
+    // 请求前缀url，开发环境开启代理
+    options.baseURL = import.meta.dev
+      ? '/dev-api'
+      : useRuntimeConfig().public.apiBase;
 
     // 是否允许数据重复提交，默认不允许
     const isRepeatSubmit = (options.headers || {}).repeatSubmit === false;
