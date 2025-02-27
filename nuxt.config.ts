@@ -1,4 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+// build后不会读取 env文件，需设置默认值
+const apiSecretToken = process.env.NUXT_API_SECRET || 'api_secret_token_prod';
+const apiBaseURL = process.env.NUXT_PUBLIC_API_BASE || 'https://api.prod.com';
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: {
@@ -11,10 +16,10 @@ export default defineNuxtConfig({
   // 构建后不会读取 env文件，仅使用config默认值
   runtimeConfig: {
     // The private keys which are only available within server-side
-    apiSecret: 'api_secret_token_default',
+    apiSecret: apiSecretToken,
     // Keys within public, will be also exposed to the client-side
     public: {
-      apiBase: 'https://api.prod.com',
+      apiBase: apiBaseURL,
     },
   },
 
@@ -49,17 +54,18 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    // 仅在Client客户端有效
     devProxy: {
       // '/dev-api': {
       //   target: process.env.NUXT_PUBLIC_API_BASE,
       //   changeOrigin: true,
-      //   secure: false,
-      //   ignorePath: true, // 未成功 why？
+      //   secure: false, // target为 https需赋值为 false
       // },
     },
+    // ssr,client都有效
     routeRules: {
       '/dev-api/**': {
-        proxy: process.env.NUXT_PUBLIC_API_BASE + '/**',
+        proxy: apiBaseURL + '/**',
       },
     },
   },
