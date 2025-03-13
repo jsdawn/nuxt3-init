@@ -12,6 +12,10 @@
 const route = useRoute();
 const id = ref(route.params.id || 0);
 const title = ref(route.query.title || '详情');
+
+definePageMeta({
+  layout: false,
+});
 </script>
 
 <style lang="scss">

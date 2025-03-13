@@ -34,6 +34,8 @@ export default defineNuxtConfig({
     },
   },
 
+  css: ['~/assets/styles/index.scss'],
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@element-plus/nuxt',

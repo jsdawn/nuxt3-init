@@ -1,5 +1,15 @@
 @use 'element/theme.scss';
 
-.red {
-  color: red;
+// add text color primary
+
+.text-primary {
+  color: var(--el-color-primary);
+}
+.hover\:text-primary {
+  &:hover {
+    color: var(--el-color-primary);
+  }
+}
+.bg-primary {
+  background-color: var(--el-color-primary);
 }
