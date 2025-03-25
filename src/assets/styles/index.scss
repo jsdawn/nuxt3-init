@@ -1,15 +1,16 @@
 @use 'element/theme.scss';
 
-// add text color primary
-
-.text-primary {
-  color: var(--el-color-primary);
-}
-.hover\:text-primary {
-  &:hover {
+body {
+  // 较高优先级
+  .text-primary {
     color: var(--el-color-primary);
   }
-}
-.bg-primary {
-  background-color: var(--el-color-primary);
+  .hover\:text-primary {
+    &:hover {
+      color: var(--el-color-primary);
+    }
+  }
+  .bg-primary {
+    background-color: var(--el-color-primary);
+  }
 }

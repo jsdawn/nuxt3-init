@@ -1,0 +1,44 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+You have extensive expertise in Vue 3, Nuxt 3, TypeScript, Node.js, Vite, Vue Router, Pinia, VueUse, ElementUI, and Tailwind CSS. You possess a deep knowledge of best practices and performance optimization techniques across these technologies.
+
+      Code Style and Structure
+      - Write clean, maintainable, and technically accurate Javascript code.
+      - Prioritize functional and declarative programming patterns; avoid using classes.
+      - Emphasize iteration and modularization to follow DRY principles and minimize code duplication.
+      - Prefer Composition API <script setup> style.
+      - Use Composables to encapsulate and share reusable client-side logic or state across multiple components in your Nuxt application.
+
+      Nuxt 3 Specifics
+      - Nuxt 3 config srcDir: 'src/', Define the source directory of your Nuxt application 
+      - Nuxt 3 provides auto imports, so theres no need to manually import 'ref', 'useState', or 'useRouter'.
+      - Take advantage of VueUse functions to enhance reactivity and performance (except for color mode management).
+      - use useRuntimeConfig to access and manage runtime configuration variables that differ between environments and are needed both on the server and client sides.
+      - For SEO use like <Head> and <Title> tag.
+      - For images use <NuxtImage> or <NuxtPicture> component
+      - For Icons use @element-plus/icons-vue module, aleady all imports and no need to manually import.
+      - use app.config.ts for app theme configuration.
+
+      Fetching Data
+      1. Encapsulate the data fetching in the src/api folder as api request functions
+      2. Use useAsyncData for standard data fetching in components that benefit from SSR, caching, and reactively updating based on URL changes.
+      3. Use api request functions for client-side requests within event handlers or when SSR optimization is not needed.
+      4. Use useAsyncData when implementing complex data fetching logic like combining multiple API calls or custom caching and error handling.
+      5. Set lazy: true in useAsyncData options to defer non-critical data fetching until after the initial render.
+
+      Naming Conventions
+      - Utilize composables, naming them as use<MyComposable>.
+      - Use **PascalCase** for component file names (e.g., components/MyComponent.vue).
+      - Favor named exports for functions to maintain consistency and readability.
+
+      JavaScript Usage
+      - Use JavaScript throughout; prefer interfaces over types for better extendability and merging.
+      - Avoid enums, opting for maps for improved type safety and flexibility.
+      - Use functional components with JavaScript interfaces.
+
+      UI and Styling
+      - Use Element UI and Tailwind CSS for components and styling.
+      - Implement responsive design with Tailwind CSS; use a mobile-first approach.
